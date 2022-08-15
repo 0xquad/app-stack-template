@@ -1,0 +1,47 @@
+services:
+  frontend:
+    image: frontend
+    build: frontend
+    networks:
+      - frontend
+    volumes:
+      - ./frontend/app:/app
+    environment:
+      - API_URL=http://api
+
+  api:
+    image: api
+    build:
+      context: api
+      args: []
+#       - PORT=5000
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - ./api:/app
+    environment:
+      - FLASK_DEBUG=1
+      - FLASK_ENV=development
+      - BACKEND_URL=http://backend
+
+
+  backend:
+    image: backend
+    build:
+      context: backend
+      args: []
+#       - PORT=5000
+    networks:
+      - backend
+    volumes:
+      - ./backend:/app
+    environment:
+      - FLASK_DEBUG=1
+      - FLASK_ENV=development
+
+
+
+networks:
+  frontend:
+  backend:
