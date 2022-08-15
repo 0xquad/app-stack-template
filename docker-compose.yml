@@ -9,6 +9,18 @@ services:
     environment:
       - API_URL=http://api
 
+  frontend-prod:
+    image: nginx:alpine
+    build:
+      context: frontend
+      dockerfile: Dockerfile.prod
+    networks:
+      - frontend
+    environment:
+      - API_URL=http://api
+#   ports:
+#     - 8088:80
+
   api:
     image: api
     build:
