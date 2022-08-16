@@ -6,4 +6,4 @@ RUN adduser -DHh /app app
 WORKDIR /app
 COPY . /app
 USER app
-CMD flask run -h :: -p ${PORT}
+CMD exec /usr/local/bin/flask run -h :: -p ${PORT}
