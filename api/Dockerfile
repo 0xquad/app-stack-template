@@ -1,7 +1,7 @@
 FROM python:3-alpine
 ARG PORT
 ENV PORT ${PORT:-80}
-RUN pip install -U pip && pip install flask
+RUN pip install -U pip && pip install flask flask_cors
 RUN adduser -DHh /app app
 WORKDIR /app
 COPY . /app
