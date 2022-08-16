@@ -6,8 +6,6 @@ services:
       - frontend
     volumes:
       - ./frontend/app:/app
-    environment:
-      - API_URL=http://api
 
   frontend-prod:
     image: nginx:alpine
@@ -16,8 +14,6 @@ services:
       dockerfile: Dockerfile.prod
     networks:
       - frontend
-    environment:
-      - API_URL=http://api
 #   ports:
 #     - 8088:80
 
