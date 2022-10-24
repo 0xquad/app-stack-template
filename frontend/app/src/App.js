@@ -56,3 +56,4 @@ function App() {
 }
 
 export default App;
+// vim: ts=2 sw=2
